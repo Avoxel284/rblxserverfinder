@@ -77,6 +77,7 @@ async function fetchServers(id, cursor) {
 			return id;
 		},
 		validate: async (id) => {
+			if (!id) return `No ID or URL was provided.`;
 			try {
 				const { status, data } = await axios.get(
 					`https://games.roblox.com/v1/games/multiget-place-details?placeIds=${id}`,
